@@ -20,7 +20,5 @@ variable "ebs_size" {
 
 variable "ebs_block_device" {
   description = "Additional EBS block devices to attach to the instance"
-  type        = map(object({
-    size = number
-  }))
+  type        = map(object)
 }
