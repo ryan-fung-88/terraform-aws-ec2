@@ -20,7 +20,7 @@ resource "aws_ebs_volume" "this" {
   for_each  = var.ebs_block_device
   availability_zone = aws_instance.this.availability_zone
   encrypted = true
-  size = each.value.size
+  size = var.ebs_size
   type = "gp3"
 }
 
