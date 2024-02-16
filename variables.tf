@@ -18,7 +18,9 @@ variable "ebs_size" {
   type        = number
 }
 
-variable "attach_volume" {
-  description = "Bool value if an EBS volume is to be attached to ec2 instance"
-  type        = bool
+variable "ebs_block_device" {
+  description = "Additional EBS block devices to attach to the instance"
+  type        = map(object({
+    size = number
+  }))
 }
