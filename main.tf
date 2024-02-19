@@ -24,13 +24,13 @@ resource "aws_ebs_volume" "this" {
   for_each  = var.ebs_block_device
   availability_zone = aws_instance.this.availability_zone
   encrypted = true
-  size = var.ebs_size
+  size = each.value.size
   type = "gp3"
 }
 
 resource "aws_volume_attachment" "this" {
   for_each = aws_ebs_volume.this
-  device_name = var.ebs_device_name
+  device_name = each.value.name
   volume_id = each.value.id
   instance_id = aws_instance.this.id
 } 
