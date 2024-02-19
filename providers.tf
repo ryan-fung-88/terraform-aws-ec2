@@ -1,6 +1,9 @@
 terraform {
   cloud {
     organization = "acn-cloud-security"
+    workspaces {
+      name = "test-123"
+    }
   }
   required_providers {
     aws = {
