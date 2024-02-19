@@ -30,7 +30,7 @@ resource "aws_ebs_volume" "this" {
 
 resource "aws_volume_attachment" "this" {
   for_each = aws_ebs_volume.this
-  device_name = each.value.name
+  device_name = var.ebs_device_name
   volume_id = aws_ebs_volume.this.id
   instance_id = aws_instance.this.id
 } 

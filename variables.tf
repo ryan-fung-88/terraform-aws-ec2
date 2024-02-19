@@ -8,10 +8,10 @@ variable "instance_type" {
   type        = string
 }
 
-# variable "ebs_device_name" {
-#   description = "Name of the EBS Volume Device"
-#   type        = string
-# }
+variable "ebs_device_name" {
+  description = "Name of the EBS Volume Device"
+  type        = string
+}
 
 # variable "ebs_size" {
 #   description = "Size of EBS Volume in GiBs"
@@ -20,5 +20,7 @@ variable "instance_type" {
 
 variable "ebs_block_device" {
   description = "Additional EBS block devices to attach to the instance"
-  type        = map(object)
+  type        = map(object{
+    size = number
+  })
 }
